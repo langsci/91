@@ -1,0 +1,19 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Change title for chapter 1 in chapters/01.tex}{1}{chapter.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.1}About literature}{1}{section.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Change title for chapter 2 in chapters/02.tex}{3}{chapter.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Change title for chapter 3 in chapters/03.tex}{5}{chapter.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{List of references}{7}{section*.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Index}{7}{chapter*.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Name index}{7}{section*.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Language index}{9}{section*.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Subject index}{10}{section*.6}
