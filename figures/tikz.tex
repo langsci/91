@@ -1,134 +1,333 @@
-\begin{figure}
-%83 
-\end{figure}
+\documentclass[11pt]{article}
+
+\usepackage{xunicode}
+\usepackage{fontspec}
+\usepackage{xltxtra}
+\usepackage{tikz}
+\usepackage[hmargin=1cm]{geometry}
+\usetikzlibrary{positioning}
+\usetikzlibrary{fit}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{calc}
+
+\setromanfont[Mapping=tex-text]{Linux Libertine O}
+\begin{document}
+	
+	\tableofcontents
+	\newpage
+
+\begin{center}
+
+\section{Ex 83 Pg 36}
+
+\resizebox{\textwidth}{!}{
+
+	\begin{tikzpicture}
+	% Draw the nodes
+	\node at (0,0) (1S) {S$_0$};
+	% Level 2
+	\node [below left=\baselineskip and 35mm of 1S, circle, draw] (2NP) {NP};
+	\node [below right=\baselineskip and 25mm of 1S] (2VP) {VP};
+	\node [below=\baselineskip of 1S] (2Aux) {Aux};
+	% Sublevel of 2: "ok"
+	\node [below right=3mm of 2NP, circle, draw] (2ok) {o.k.}; 
+	% Level 3
+	\node [below=2\baselineskip of 2NP] (3S) {S$_1$};
+	\node [below left=2\baselineskip and 3mm of 2VP] (3V) {V};
+	\node [below right=2\baselineskip and 3mm of 2VP] (3Adv) {Adv};
+	% Level 4
+	\node [below left=\baselineskip and 8mm of 3S, circle, draw] (4NP) {NP};
+	\node [below right=\baselineskip and 8mm of 3S] (4VP) {VP};
+	%Sublevel of 4: "*"
+	\node [below right=3mm of 4NP, circle, draw] (4*) {*}; 
+	% Level 5
+	\node [below left=2\baselineskip and 3mm of 4VP] (5V) {V};
+	\node [below right=2\baselineskip and 3mm of 4VP] (5Adv) {Adv};
+	% Level 6
+	% Polygon
+	\node [below=1mm of 5Adv, regular polygon, regular polygon sides=3, draw, inner sep=6pt] (6polygon) {};
+	\node [on grid, below=1\baselineskip of 6polygon.base, baseline] (6ovadea) {\strut ova dea}; 
+	
+	\path let \p1 = (5V),  \p2 = (6ovadea) in node at (\x1,\y2) (6goin) {\strut goin};
+	\path let \p1 = (4NP),  \p2 = (6ovadea) in node at (\x1,\y2) (6sambadi) {\strut sambadi};
+	\path [on grid] let \p1 = (2Aux),  \p2 = (6ovadea) in node at (\x1,\y2) (6gon) {\strut gon};
+	\path let \p1 = (3V),  \p2 = (6ovadea) in node at (\x1,\y2) (6hia) {\strut hia};
+	\path let \p1 = (3Adv),  \p2 = (6ovadea) in node at (\x1,\y2) (6nau) {\strut nau};
+	
+	% Draw the paths between nodes
+	\draw (node cs:name=1S, anchor=west) -- (node cs:name=2NP, anchor=north east);
+	\draw (node cs:name=1S, anchor=east) -- (node cs:name=2VP, anchor=north);
+	\draw (node cs:name=1S, anchor=south) -- (node cs:name=2Aux, anchor=north);
+	\draw (node cs:name=2NP, anchor=south east) -- (node cs:name=2ok, anchor=north west);
+	\draw (node cs:name=2NP, anchor=south) -- (node cs:name=3S);
+	\draw (node cs:name=2VP, anchor=south) -- (node cs:name=3V, anchor=north);
+	\draw (node cs:name=2VP, anchor=south) -- (node cs:name=3Adv, anchor=north);
+	\draw (node cs:name=3S, anchor=south west) -- (node cs:name=4NP, anchor=north east);
+	\draw (node cs:name=3S, anchor=south east) -- (node cs:name=4VP, anchor=north);
+	\draw (node cs:name=4NP, anchor=south east) -- (node cs:name=4*, anchor=north west); 
+	\draw (node cs:name=4VP, anchor=south) -- (node cs:name=5V, anchor=north);
+	\draw (node cs:name=4VP, anchor=south) -- (node cs:name=5Adv, anchor=north);
+	\draw (node cs:name=4NP, anchor=south) -- (node cs:name=6sambadi);
+	\draw (node cs:name=5V, anchor=south) -- (node cs:name=6goin);
+	\draw (node cs:name=2Aux, anchor=south) -- (node cs:name=6gon);
+	\draw (node cs:name=3V, anchor=south) -- (node cs:name=6hia);
+	\draw (node cs:name=3Adv, anchor=south) -- (node cs:name=6nau);
+	
+	\end{tikzpicture}
+}
 \newpage
 
+\section{Ex 141 Pg 101}
 
-\begin{figure}
-%141 
-\end{figure}
+\resizebox{\textwidth}{!}{
+	\begin{tikzpicture}
+	% Levels 1 & 2
+	\node at (0,0) (1S) {S};
+	\node [below left=\baselineskip and 18mm of 1S] (2NP) {NP};
+	\node [below=\baselineskip of 1S] (2AUX) {AUX};
+	\node [below right=\baselineskip and 30mm of 1S] (2VP) {VP};
+	
+	% Level 3
+	\node [below=\baselineskip of 2NP] (3I) {I};
+	\node [below=\baselineskip of 2AUX] (3Past) {Past};
+	\node [below left=\baselineskip and 12mm of 2VP] (3V) {V};
+	\node [below right=\baselineskip and 12mm of 2VP] (3S) {S};
+	
+	% Level 4
+	\node [below=.5em of 3I] (4mi) {mi};
+	\node [rectangle split, rectangle split parts=2, below=\baselineskip of 3V] (4hear) {hear\nodepart{two}hia};
+	\node [circle, draw, below left=\baselineskip and 12mm of 3S] (4NP) {NP};
+	\node [below=\baselineskip of 3S] (4AUX) {AUX};
+	\node [below right=\baselineskip and 12mm of 3S] (4VP) {VP};
+	
+	% Levels 5 and 6
+	\node [rectangle split, rectangle split parts=2, below=\baselineskip of 4NP] (5drums) {drums\nodepart{two}drom};
+	\node [below=2\baselineskip of 4AUX] (5ASP) {ASP};
+	\node [below=2\baselineskip of 4VP] (5V) {V};
+	\node [rectangle split, rectangle split parts=2, below=\baselineskip of 5V] (6beat) {beat\nodepart{two}nak};
+	
+	
+	% Connections
+	\draw (node cs:name=1S, anchor=south) -- (node cs:name=2NP);
+	\draw (node cs:name=1S, anchor=south) -- (node cs:name=2AUX);
+	\draw (node cs:name=1S, anchor=south) -- (node cs:name=2VP);	
+	\draw (node cs:name=2NP, anchor=south) -- (node cs:name=3I);
+	\draw (node cs:name=2AUX, anchor=south) -- (node cs:name=3Past);
+	\draw (node cs:name=2VP, anchor=south) -- (node cs:name=3V);
+	\draw (node cs:name=2VP, anchor=south) -- (node cs:name=3S);	
+	\draw (node cs:name=3V, anchor=south) -- (node cs:name=4hear);
+	\draw (node cs:name=3S, anchor=south) -- (node cs:name=4NP);
+	\draw (node cs:name=3S, anchor=south) -- (node cs:name=4AUX);
+	\draw (node cs:name=3S, anchor=south) -- (node cs:name=4VP);
+	\draw (node cs:name=4NP, anchor=south) -- (node cs:name=5drums);
+	\draw (node cs:name=4AUX, anchor=south) -- (node cs:name=5ASP);
+	\draw (node cs:name=4VP, anchor=south) -- (node cs:name=5V);
+	\draw (node cs:name=5V, anchor=south) -- (node cs:name=6beat);
+	\end{tikzpicture}
+	}
 \newpage
 
+\section{Ex 142 Pg 102}
 
-\begin{figure}
-%142
-\end{figure}
+\resizebox{\textwidth}{!}{
+	\begin{tikzpicture}
+	% Levels 1 & 2
+	\node at (0,0) (1S) {S};
+	\node [below left=\baselineskip and 12mm of 1S] (2NP) {NP};
+	\node [below=\baselineskip of 1S] (2AUX) {AUX};
+	\node [below right=\baselineskip and 24mm of 1S] (2VP) {VP};
+	
+	% Level 3
+	\node [below=\baselineskip of 2NP] (3I) {I};
+	\node [below=\baselineskip of 2AUX] (3Past) {Past};
+	\node [below left=\baselineskip and 6mm of 2VP] (3V) {V};
+	\node [circle, draw, inner sep=2pt, yshift=.25em, below=\baselineskip of 2VP] (3NP) {NP};
+	\node [below right=\baselineskip and 6mm of 2VP] (3VP) {VP};
+	
+	% Level4
+	\node [below=\baselineskip of 3V] (4hear) {\strut hear};
+	\node [below=\baselineskip of 3NP, yshift=.3em] (4drums) {\strut drums}; % NOT PERFECT!!
+	\node [below=\baselineskip of 3VP] (4beating) {\strut beating};
+	
+	% Connections
+	\draw (node cs:name=1S, anchor=south) -- (node cs:name=2NP);
+	\draw (node cs:name=1S, anchor=south) -- (node cs:name=2AUX);
+	\draw (node cs:name=1S, anchor=south) -- (node cs:name=2VP);	
+	\draw (node cs:name=2NP, anchor=south) -- (node cs:name=3I);
+	\draw (node cs:name=2AUX, anchor=south) -- (node cs:name=3Past);
+	\draw (node cs:name=2VP, anchor=south) -- (node cs:name=3V);
+	\draw (node cs:name=2VP, anchor=south) -- (node cs:name=3NP);
+	\draw (node cs:name=2VP, anchor=south) -- (node cs:name=3VP);
+	\draw (node cs:name=3V, anchor=south) -- (node cs:name=4hear);
+	\draw (node cs:name=3NP, anchor=south) -- (node cs:name=4drums);
+	\draw (node cs:name=3VP, anchor=south) -- (node cs:name=4beating);
+	\end{tikzpicture}
+	}
+
+
 \newpage
 
+\section{Ex 199 Pg 111}
 
-\begin{figure}
-%199
-\end{figure}
-\newpage
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}
+	% Levels 1 to 3
+	\node at (0,0) (1S) {\=S};	
+	\node [below left=\baselineskip and 6mm of 1S] (2COMP) {COMP};
+	\node [below right=\baselineskip and 24mm of 1S] (2S) {S};
+	\node [below left=\baselineskip and 12mm of 2S] (3NP) {NP};
+	\node [below=\baselineskip of 2S] (3V) {V};
+	\node [below right=\baselineskip and 24mm of 2S] (3S) {S};
+	
+	% Levels 4 and 5
+	\node [below=\baselineskip of 3NP] (4i) {\strut i};
+	\node [below=\baselineskip of 3V] (4waan) {\strut waan};
+	\node [below left=\baselineskip and 6mm of 3S] (4NP) {\strut NP};
+	\node [below=\baselineskip of 3S] (4Aux) {\strut Aux};
+	\node [below right=\baselineskip and 6mm of 3S] (4V) {\strut V};
+	\node [below right=\baselineskip and 24mm of 3S] (4NP2) {\strut NP};
+	\node [below=\baselineskip of 4NP] (5mi) {\strut mi};
+	\node [below=\baselineskip of 4Aux] (5fi) {\strut fi};
+	\node [below=\baselineskip of 4V] (5go) {\strut go};
+	\node [isosceles triangle, isosceles triangle apex angle=100, shape border rotate=90, minimum height=1.5em, draw, below=3mm of 4NP2.center] (5polygon) {};
+	\path [on grid] let \p1 = (4NP2), \p2 = (5go.base) in node at (\x1,\y2) (6WH) {WH-place};
+	
+	
+	% Connections
+	\draw (node cs:name=1S) -- (node cs:name=2COMP);
+	\draw (node cs:name=1S) -- (node cs:name=2S);
+	\draw (node cs:name=2S) -- (node cs:name=3NP);
+	\draw (node cs:name=2S) -- (node cs:name=3V);
+	\draw (node cs:name=2S) -- (node cs:name=3S);
+	\draw (node cs:name=3NP) -- (node cs:name=4i);
+	\draw (node cs:name=3V) -- (node cs:name=4waan);
+	\draw (node cs:name=3S) -- (node cs:name=4NP);
+	\draw (node cs:name=3S) -- (node cs:name=4Aux);
+	\draw (node cs:name=3S) -- (node cs:name=4V);
+	\draw (node cs:name=3S) -- (node cs:name=4NP2);
+	\draw (node cs:name=4NP) -- (node cs:name=5mi);
+	\draw (node cs:name=4Aux) -- (node cs:name=5fi);
+	\draw (node cs:name=4V) -- (node cs:name=5go);
+	
+	
 
+\end{tikzpicture}
+}
 
-\begin{figure}
-%200
-\end{figure}
-\newpage
-
-
-\begin{figure}
-%201
-\end{figure}
-\newpage
-
-
-\begin{figure}
-%207 
-\end{figure}
-\newpage
-
-
-\begin{figure}
-%222
-\end{figure}
-\newpage
-
-
-\begin{figure}
-%246 
-\end{figure}
-\newpage
-
-
-\begin{figure}
-%247 
-\end{figure}
-\newpage
-
-
-\begin{figure}
-%252
-\end{figure}
-\newpage
-
-
-\begin{figure}
-%260 
-\end{figure}
-\newpage
+% \begin{figure}
+% %199
+% \end{figure}
+% \newpage
 
 
-\begin{figure}
-%261
-\end{figure}
-\newpage
+% \begin{figure}
+% %200
+% \end{figure}
+% \newpage
 
 
-\begin{figure}
-%table33 p169
-\end{figure}
-\newpage
+% \begin{figure}
+% %201
+% \end{figure}
+% \newpage
 
 
-\begin{figure}
-%fig3.1 178
-\end{figure}
-\newpage
+% \begin{figure}
+% %207 
+% \end{figure}
+% \newpage
 
 
-\begin{figure}
-%228
-\end{figure}
-\newpage
+% \begin{figure}
+% %222
+% \end{figure}
+% \newpage
 
 
-\begin{figure}
-%fig 4.3. p247
-\end{figure}
-\newpage
+% \begin{figure}
+% %246 
+% \end{figure}
+% \newpage
 
 
-\begin{figure}
-%fig 4.4. p249
-\end{figure}
-\newpage
+% \begin{figure}
+% %247 
+% \end{figure}
+% \newpage
 
 
-\begin{figure}
-%fig 4.6 p252
-\end{figure}
-\newpage
+% \begin{figure}
+% %252
+% \end{figure}
+% \newpage
 
 
-\begin{figure}
-%fig 4.7. p 253
-\end{figure}
-\newpage
+% \begin{figure}
+% %260 
+% \end{figure}
+% \newpage
 
-\begin{figure}
-%fig 4.8. p 259
-\end{figure}
-\newpage
 
-\begin{figure}
-%fig 4.9. p 260
-\end{figure}
-\newpage
+% \begin{figure}
+% %261
+% \end{figure}
+% \newpage
 
-\begin{figure}
-%fig 5.1. p 298
-\end{figure}
-\newpage
- 
+
+% \begin{figure}
+% %table33 p169
+% \end{figure}
+% \newpage
+
+
+% \begin{figure}
+% %fig3.1 178
+% \end{figure}
+% \newpage
+
+
+% \begin{figure}
+% %228
+% \end{figure}
+% \newpage
+
+
+% \begin{figure}
+% %fig 4.3. p247
+% \end{figure}
+% \newpage
+
+
+% \begin{figure}
+% %fig 4.4. p249
+% \end{figure}
+% \newpage
+
+
+% \begin{figure}
+% %fig 4.6 p252
+% \end{figure}
+% \newpage
+
+
+% \begin{figure}
+% %fig 4.7. p 253
+% \end{figure}
+% \newpage
+
+% \begin{figure}
+% %fig 4.8. p 259
+% \end{figure}
+% \newpage
+
+% \begin{figure}
+% %fig 4.9. p 260
+% \end{figure}
+% \newpage
+
+% \begin{figure}
+% %fig 5.1. p 298
+%\end{figure}
+\end{center}
+\end{document}
