@@ -215,23 +215,117 @@
 \end{tikzpicture}
 }
 
-% \begin{figure}
-% %199
-% \end{figure}
-% \newpage
+\section{Ex 200 Pg 112}
+
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}
+	% Levels 1 to 3
+	\node at (0,0) (1S) {\=S};	
+	\node [below left=\baselineskip and 12mm of 1S.south] (2COMP) {COMP};
+	\node [below right=\baselineskip and 6mm of 1S.south] (2S) {S};
+	\node [below left=\baselineskip and 12mm of 2S] (3NP) {NP};
+	\node [below=\baselineskip of 2S] (3V) {V};
+	\node [below right=\baselineskip and 12mm of 2S] (3PP) {PP};
+	
+	% Levels 4 and 5
+	\node [below=\baselineskip of 3NP] (4i) {\strut i};
+	\node [below=\baselineskip of 3V] (4waan) {\strut waan};
+	\node [below left=4\baselineskip and 3mm of 3PP] (4P) {\strut P};
+	\node [below right=4\baselineskip and 24mm of 3PP] (4S) {\strut S};
+	\node [below=\baselineskip of 4P] (5fi) {\strut fi};
+	\node [below left=4\baselineskip and 18mm of 4S] (5NP) {\strut NP};
+	\node [below left=4\baselineskip and 2mm of 4S] (5Aux) {\strut Aux};
+	\node [below right=4\baselineskip and 2mm of 4S] (5V) {\strut V};
+	\node [below right=4\baselineskip and 18mm of 4S] (5NP2) {\strut NP};
+
+	\node [below=\baselineskip of 5NP] (6mi) {\strut mi};
+	\node [below=\baselineskip of 5Aux] (6fi) {\strut fi};
+	\node [below=\baselineskip of 5V] (6go) {\strut go};
+	\node [isosceles triangle, isosceles triangle apex angle=100, shape border rotate=90, minimum height=1.5em, draw, below=3mm of 5NP2.center] (6polygon) {};
+	\path [on grid] let \p1 = (5NP2), \p2 = (6go.base) in node at (\x1,\y2) (7WH) {WH-place};
+	
+	
+	% Connections
+	\draw (node cs:name=1S, anchor=south) -- (node cs:name=2COMP, anchor=north);
+	\draw (node cs:name=1S, anchor=south) -- (node cs:name=2S, anchor=north);
+	\draw (node cs:name=2S, anchor=south) -- (node cs:name=3NP);
+	\draw (node cs:name=2S, anchor=south) -- (node cs:name=3V);
+	\draw (node cs:name=2S, anchor=south) -- (node cs:name=3PP);
+	\draw (node cs:name=3NP) -- (node cs:name=4i);
+	\draw (node cs:name=3V) -- (node cs:name=4waan);
+	\draw (3PP.south) -- (4P.north);
+	\draw (3PP.south) -- (4S.north);
+	\draw (4P.south) -- (5fi.north);
+	\draw (4S.south) -- (node cs:name=5NP);
+	\draw (4S.south) -- (node cs:name=5Aux);
+	\draw (4S.south) -- (node cs:name=5V);
+	\draw (4S.south) -- (node cs:name=5NP2);
+	\draw (node cs:name=5NP) -- (node cs:name=6mi);
+	\draw (node cs:name=5Aux) -- (node cs:name=6fi);
+	\draw (node cs:name=5V) -- (node cs:name=6go);
+\end{tikzpicture}
+}
 
 
-% \begin{figure}
-% %200
-% \end{figure}
-% \newpage
+\section{Ex 201 Pg 113}
 
+\resizebox{\textwidth}{!}{
+	\begin{tikzpicture}
+	% Levels 1 to 3
+	\node at (0,0) (1S) {\=S};	
+	\node [below left=\baselineskip and 6mm of 1S] (2COMP) {\strut COMP};
+	\node [below right=\baselineskip and 24mm of 1S] (2S) {\strut S};
+	\node [below left=\baselineskip and 12mm of 2S] (3NP) {\strut NP};
+	\node [below=\baselineskip of 2S] (3V) {\strut V};
+	\node [below right=\baselineskip and 24mm of 2S] (3S) {\strut \=S};
+	\node [below=\baselineskip of 2COMP] (3space) {( )};
+	
+	% Levels 4 and 5
+	\node [below=\baselineskip of 3NP] (4i) {\strut i};
+	\node [below=\baselineskip of 3V] (4waan) {\strut waan};
+	\node [below left=\baselineskip and 3mm of 3S] (4comp) {\strut COMP};
+	\node [below right=\baselineskip and 12mm of 3S] (4S) {\strut S};
+	
+	\node [below=\baselineskip of 4comp] (5fi) {(fi)};
+	\node [below left=\baselineskip and 6mm of 4S] (5NP) {\strut NP};
+	\node [below=\baselineskip of 4S] (5Aux) {\strut Aux};
+	\node [below right=\baselineskip and 6mm of 4S] (5V) {\strut V};
+	\node [below right=\baselineskip and 24mm of 4S] (5NP2) {\strut NP};
+	\node [below=\baselineskip of 5NP] (6mi) {\strut mi};
+	\node [below=\baselineskip of 5Aux] (6fi) {\strut fi};
+	\node [below=\baselineskip of 5V] (6go) {\strut go};
+	\node [isosceles triangle, isosceles triangle apex angle=100, shape border rotate=90, minimum height=1.5em, draw, below=3mm of 5NP2.center] (6polygon) {};
+	\path [on grid] let \p1 = (5NP2), \p2 = (6go.base) in node at (\x1,\y2) (6WH) {WH-place};
+	
+	
+	% Connections
+	\draw (node cs:name=1S) -- (node cs:name=2COMP);
+	\draw (node cs:name=1S) -- (node cs:name=2S);
+	\draw (node cs:name=2S) -- (node cs:name=3NP);
+	\draw (node cs:name=2S) -- (node cs:name=3V);
+	\draw (node cs:name=2S) -- (node cs:name=3S);
+	\draw (node cs:name=3NP) -- (node cs:name=4i);
+	\draw (node cs:name=3V) -- (node cs:name=4waan);
+	\draw (node cs:name=3S) -- (node cs:name=4comp);
+	\draw (node cs:name=3S) -- (node cs:name=4S);
+	\draw (node cs:name=4S) -- (node cs:name=5NP);
+	\draw (node cs:name=4S) -- (node cs:name=5Aux);
+	\draw (node cs:name=4S) -- (node cs:name=5V);
+	\draw (node cs:name=4S) -- (node cs:name=5NP2);
+	\draw (node cs:name=5NP) -- (node cs:name=6mi);
+	\draw (node cs:name=5Aux) -- (node cs:name=6fi);
+	\draw (node cs:name=5V) -- (node cs:name=6go);
+	\draw (node cs:name=2COMP) -- (node cs:name=3space);
+	\draw (node cs:name=4comp) -- (node cs:name=5fi);
+	
+	\draw [dashed] (6WH.south) edge [bend left=60] (5fi.south);
+	\draw [dashed] (5fi.south west) edge [bend left=50] (3space.south);
+	
+	
+	
+	\end{tikzpicture}
 
-% \begin{figure}
-% %201
-% \end{figure}
-% \newpage
-
+}
 
 % \begin{figure}
 % %207 
