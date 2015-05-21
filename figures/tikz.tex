@@ -299,19 +299,19 @@
 	
 	
 	% Connections
-	\draw (node cs:name=1S) -- (node cs:name=2COMP);
-	\draw (node cs:name=1S) -- (node cs:name=2S);
-	\draw (node cs:name=2S) -- (node cs:name=3NP);
-	\draw (node cs:name=2S) -- (node cs:name=3V);
-	\draw (node cs:name=2S) -- (node cs:name=3S);
+	\draw (node cs:name=1S, anchor=south) -- (node cs:name=2COMP);
+	\draw (node cs:name=1S, anchor=south) -- (node cs:name=2S);
+	\draw (node cs:name=2S, anchor=south) -- (node cs:name=3NP);
+	\draw (node cs:name=2S, anchor=south) -- (node cs:name=3V);
+	\draw (node cs:name=2S, anchor=south) -- (node cs:name=3S);
 	\draw (node cs:name=3NP) -- (node cs:name=4i);
 	\draw (node cs:name=3V) -- (node cs:name=4waan);
-	\draw (node cs:name=3S) -- (node cs:name=4comp);
-	\draw (node cs:name=3S) -- (node cs:name=4S);
-	\draw (node cs:name=4S) -- (node cs:name=5NP);
-	\draw (node cs:name=4S) -- (node cs:name=5Aux);
-	\draw (node cs:name=4S) -- (node cs:name=5V);
-	\draw (node cs:name=4S) -- (node cs:name=5NP2);
+	\draw (node cs:name=3S, anchor=south) -- (node cs:name=4comp);
+	\draw (node cs:name=3S, anchor=south) -- (node cs:name=4S);
+	\draw (node cs:name=4S, anchor=south) -- (node cs:name=5NP);
+	\draw (node cs:name=4S, anchor=south) -- (node cs:name=5Aux);
+	\draw (node cs:name=4S, anchor=south) -- (node cs:name=5V);
+	\draw (node cs:name=4S, anchor=south) -- (node cs:name=5NP2);
 	\draw (node cs:name=5NP) -- (node cs:name=6mi);
 	\draw (node cs:name=5Aux) -- (node cs:name=6fi);
 	\draw (node cs:name=5V) -- (node cs:name=6go);
