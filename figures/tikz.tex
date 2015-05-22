@@ -1,7 +1,7 @@
 \documentclass[11pt]{article}
-
+\usepackage{amssymb}
 \usepackage{xunicode}
-\usepackage{fontspec}
+\usepackage{mathspec}
 \usepackage{xltxtra}
 \usepackage{tikz}
 \usepackage[hmargin=1cm]{geometry}
@@ -10,8 +10,9 @@
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{shapes.multipart}
 \usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta}
 
-\setromanfont[Mapping=tex-text]{Linux Libertine O}
+\setallmainfonts[Mapping=tex-text]{Linux Libertine O}
 \begin{document}
 	
 	\tableofcontents
@@ -23,7 +24,7 @@
 
 \resizebox{\textwidth}{!}{
 
-	\begin{tikzpicture}
+	\begin{tikzpicture}[baseline]
 	% Draw the nodes
 	\node at (0,0) (1S) {S$_0$};
 	% Level 2
@@ -81,7 +82,7 @@
 \section{Ex 141 Pg 101}
 
 \resizebox{\textwidth}{!}{
-	\begin{tikzpicture}
+	\begin{tikzpicture}[baseline]
 	% Levels 1 & 2
 	\node at (0,0) (1S) {S};
 	\node [below left=\baselineskip and 18mm of 1S] (2NP) {NP};
@@ -89,13 +90,13 @@
 	\node [below right=\baselineskip and 30mm of 1S] (2VP) {VP};
 	
 	% Level 3
-	\node [below=\baselineskip of 2NP] (3I) {I};
+	\node [rectangle split, rectangle split parts=2, below=\baselineskip of 2NP] (3I) {I\nodepart{two}mi};
 	\node [below=\baselineskip of 2AUX] (3Past) {Past};
 	\node [below left=\baselineskip and 12mm of 2VP] (3V) {V};
 	\node [below right=\baselineskip and 12mm of 2VP] (3S) {S};
-	
+
 	% Level 4
-	\node [below=.5em of 3I] (4mi) {mi};
+%	\node [below=.1\baselineskip of 3I] (4mi) {mi};
 	\node [rectangle split, rectangle split parts=2, below=\baselineskip of 3V] (4hear) {hear\nodepart{two}hia};
 	\node [circle, draw, below left=\baselineskip and 12mm of 3S] (4NP) {NP};
 	\node [below=\baselineskip of 3S] (4AUX) {AUX};
@@ -131,7 +132,7 @@
 \section{Ex 142 Pg 102}
 
 \resizebox{\textwidth}{!}{
-	\begin{tikzpicture}
+	\begin{tikzpicture}[baseline]
 	% Levels 1 & 2
 	\node at (0,0) (1S) {S};
 	\node [below left=\baselineskip and 12mm of 1S] (2NP) {NP};
@@ -162,6 +163,7 @@
 	\draw (node cs:name=3V, anchor=south) -- (node cs:name=4hear);
 	\draw (node cs:name=3NP, anchor=south) -- (node cs:name=4drums);
 	\draw (node cs:name=3VP, anchor=south) -- (node cs:name=4beating);
+	
 	\end{tikzpicture}
 	}
 
@@ -171,7 +173,7 @@
 \section{Ex 199 Pg 111}
 
 \resizebox{\textwidth}{!}{
-\begin{tikzpicture}
+\begin{tikzpicture}[baseline]
 	% Levels 1 to 3
 	\node at (0,0) (1S) {\=S};	
 	\node [below left=\baselineskip and 6mm of 1S] (2COMP) {COMP};
@@ -191,8 +193,8 @@
 	\node [below=\baselineskip of 4Aux] (5fi) {\strut fi};
 	\node [below=\baselineskip of 4V] (5go) {\strut go};
 	\node [isosceles triangle, isosceles triangle apex angle=100, shape border rotate=90, minimum height=1.5em, draw, below=3mm of 4NP2.center] (5polygon) {};
-	\path [on grid] let \p1 = (4NP2), \p2 = (5go.base) in node at (\x1,\y2) (6WH) {WH-place};
-	
+%	\path [on grid] let \p1 = (4NP2), \p2 = (5go.base) in node at (\x1,\y2) (6WH) {WH-place};
+	\node [below=\baselineskip of 4NP2] (6WH) {\strut WH-place};	
 	
 	% Connections
 	\draw (node cs:name=1S) -- (node cs:name=2COMP);
@@ -218,7 +220,7 @@
 \section{Ex 200 Pg 112}
 
 \resizebox{\textwidth}{!}{
-\begin{tikzpicture}
+\begin{tikzpicture}[baseline]
 	% Levels 1 to 3
 	\node at (0,0) (1S) {\=S};	
 	\node [below left=\baselineskip and 12mm of 1S.south] (2COMP) {COMP};
@@ -242,8 +244,8 @@
 	\node [below=\baselineskip of 5Aux] (6fi) {\strut fi};
 	\node [below=\baselineskip of 5V] (6go) {\strut go};
 	\node [isosceles triangle, isosceles triangle apex angle=100, shape border rotate=90, minimum height=1.5em, draw, below=3mm of 5NP2.center] (6polygon) {};
-	\path [on grid] let \p1 = (5NP2), \p2 = (6go.base) in node at (\x1,\y2) (7WH) {WH-place};
-	
+%	\path [on grid] let \p1 = (5NP2), \p2 = (6go.base) in node at (\x1,\y2) (7WH) {WH-place}; 
+	\node [below=\baselineskip of 5NP2] (7WH) {\strut WH-place};	
 	
 	% Connections
 	\draw (node cs:name=1S, anchor=south) -- (node cs:name=2COMP, anchor=north);
@@ -263,6 +265,8 @@
 	\draw (node cs:name=5NP) -- (node cs:name=6mi);
 	\draw (node cs:name=5Aux) -- (node cs:name=6fi);
 	\draw (node cs:name=5V) -- (node cs:name=6go);
+	
+	\draw [red] (6mi.base) -- (7WH.base);
 \end{tikzpicture}
 }
 
@@ -270,7 +274,7 @@
 \section{Ex 201 Pg 113}
 
 \resizebox{\textwidth}{!}{
-	\begin{tikzpicture}
+	\begin{tikzpicture}[baseline]
 	% Levels 1 to 3
 	\node at (0,0) (1S) {\=S};	
 	\node [below left=\baselineskip and 6mm of 1S] (2COMP) {\strut COMP};
@@ -295,8 +299,8 @@
 	\node [below=\baselineskip of 5Aux] (6fi) {\strut fi};
 	\node [below=\baselineskip of 5V] (6go) {\strut go};
 	\node [isosceles triangle, isosceles triangle apex angle=100, shape border rotate=90, minimum height=1.5em, draw, below=3mm of 5NP2.center] (6polygon) {};
-	\path [on grid] let \p1 = (5NP2), \p2 = (6go.base) in node at (\x1,\y2) (6WH) {WH-place};
-	
+%	\path [on grid] let \p1 = (5NP2), \p2 = (6go.base) in node at (\x1,\y2) (6WH) {WH-place};
+	\node [below=\baselineskip of 5NP2] (6WH) {\strut WH-place};	
 	
 	% Connections
 	\draw (node cs:name=1S, anchor=south) -- (node cs:name=2COMP);
@@ -318,50 +322,156 @@
 	\draw (node cs:name=2COMP) -- (node cs:name=3space);
 	\draw (node cs:name=4comp) -- (node cs:name=5fi);
 	
-	\draw [dashed] (6WH.south) edge [bend left=60] (5fi.south);
-	\draw [dashed] (5fi.south west) edge [bend left=50] (3space.south);
+	\draw (6WH.south) edge [ dashed, -{Stealth[]}, bend left=60]  (5fi.south);
+	\draw (5fi.south west) edge [ dashed, -{Stealth[]}, bend left=50] (3space.south);
 	
 	
 	
 	\end{tikzpicture}
 
 }
+\clearpage
+\section{Ex 207 Pg 115}
 
-% \begin{figure}
-% %207 
-% \end{figure}
-% \newpage
+\resizebox{\textwidth}{!}{
+	\begin{tikzpicture}[baseline]
+	
+	\node at (0,0) (1S) {S};
+	\node [below right=\baselineskip and 24mm of 1S] (2V) {$V_{adj}$};
+	\node [below=\baselineskip of 1S] (2Aux) {Aux};
+	\node [below left=\baselineskip and 24mm of 1S] (2NP) {NP};
+	
+	\node [below=\baselineskip of 2NP] (3S) {\strut\=S};
+	\node [below left=\baselineskip and .25mm of 2Aux] (3na) {\strut na};
+	\node [below right=\baselineskip  and .25mm of 2Aux] (3bin) {\strut bin};
+	\node [below=\baselineskip of 2V] (3iizi) {iizi};
+	
+	\node [below left=\baselineskip and 12mm of 3S] (4comp) {COMP};
+	\node [below right=\baselineskip and 6mm of 3S] (4S) {S};
+	
+	\node [below=\baselineskip of 4comp] (5fi) {\strut fi};
+	\node [below left=\baselineskip and 6mm of 4S] (5NP) {\strut NP};
+	\node [below=\baselineskip of 4S] (5V) {\strut V};
+	\node [below right=\baselineskip and 6mm of 4S] (5NP2) {\strut NP};
+	
+	\node [below=\baselineskip of 5NP] (6emptyset) {\strut $\varnothing$}; %from amssymb
+	\node [below=\baselineskip of 5V] (6kech) {\strut kech};
+	\node [below=\baselineskip of 5NP2] (6taiga) {\strut taiga};
+	
+	\draw (2NP.north) -- (1S.south) -- (2Aux.north); 
+	\draw (1S.south) -- (2V.north); 
+	\draw (3na.north) -- (2Aux.south) -- (3bin.north);
+	\draw (2NP.south) -- (3S);
+	\draw (2V.south) -- (3iizi);
+	\draw (4comp.north) -- (3S.south) -- (4S.north);
+	\draw (4comp.south) -- (5fi);
+	\draw (5NP.north) -- (4S.south) -- (5NP2.north);
+	\draw (4S.south) -- (5V.north);
+	\draw (5NP.south) -- (6emptyset.north);
+	\draw (5NP2.south) -- (6taiga.north);
+	\draw (5V.south) -- (6kech.north);
 
+	
 
-% \begin{figure}
-% %222
-% \end{figure}
-% \newpage
+	\end{tikzpicture}
+}
+\clearpage
+\section{Ex 222 Pg 118}
 
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[baseline]
 
-% \begin{figure}
-% %246 
-% \end{figure}
-% \newpage
+\node at (0,0) (1S) {S};
+\node [below right=\baselineskip and 24mm of 1S] (2NP2) {NP};
+\node [below left=\baselineskip and 24mm of 1S] (2NP) {NP};
+\node [below=\baselineskip of 1S] (2V) {V};
+\node [below=\baselineskip of 2NP] (3S) {S};
+\node [below=\baselineskip of 2NP2] (3S2) {S};
+\node [below=\baselineskip of 2V] (3mek) {mek};
+\node [below left=\baselineskip and 6mm of 3S] (4NP) {NP}; \node [below right=\baselineskip and 6mm of 3S] (4V) {V};
+\node [below left=\baselineskip and 6mm of 3S2] (4NP2) {NP}; \node [below right=\baselineskip and 6mm of 3S2] (4V2) {V};
+\node [below=\baselineskip of 4NP] (5dem) {dem}; \node [below=\baselineskip of 4V] (5gaan) {gaan}; 
+\node [below=\baselineskip of 4NP2] (5mi) {mi}; \node [below=\baselineskip of 4V2] (5glad) {glad}; 
+\draw (2NP.north) -- (1S.south) -- (2V.north); \draw (1S.south) -- (2NP2.north);
+\draw (3S) -- (2NP); \draw (3S2) -- (2NP2); \draw (2V) -- (3mek);
+\draw (4NP) -- (3S.south) -- (4V); \draw (4NP2) -- (3S2.south) -- (4V2);
+\draw (5dem) -- (4NP); \draw (5gaan) -- (4V); \draw (5mi) -- (4NP2); \draw (5glad) -- (4V2);
+\end{tikzpicture}	
+}
 
+\section{Ex 246 Pg 125}
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[baseline]
 
-% \begin{figure}
-% %247 
-% \end{figure}
-% \newpage
+\node at (0,0) (1S) {S};
+\node [below left=\baselineskip and 12mm of 1S] (2NP) {NP}; \node [below right=\baselineskip and 12mm of 1S] (2VP) {VP};
 
+\node [below=\baselineskip of 2NP] (3Kofi) {Kofi}; \node [below left=\baselineskip and 12mm of 2VP] (3V) {V};
+\node [below=\baselineskip of 2VP] (3NP) {NP}; \node [below right=\baselineskip and 24mm of 2VP] (3S) {S};
+\node [below=\baselineskip of 3V] (4teki) {teki}; \node [below=\baselineskip of 3NP] (4nefi) {a nefi};
+\node [below left=\baselineskip and 6mm of 3S] (4NP) {NP}; \node [below right=\baselineskip and 6mm of 3S] (4VP) {VP};
 
-% \begin{figure}
-% %252
-% \end{figure}
-% \newpage
+\node [below=\baselineskip of 4NP] (5Kofi) {(Kofi)}; \node [below left=\baselineskip and 3mm of 4VP] (5V) {V}; \node [below right=\baselineskip and 3mm of 4VP] (5NP) {NP};
+\node [below=\baselineskip of 5V] (6koti) {koti}; \node [below=\baselineskip of 5NP] (6brede) {a brede};
 
+\draw (2NP) -- (1S.south) -- (2VP);
+\draw (3Kofi) -- (2NP); \draw (3V) -- (2VP.south) -- (3NP); \draw (2VP.south) -- (3S); \draw (4teki)--(3V); \draw (4nefi)--(3NP); \draw (4NP) -- (3S.south) -- (4VP); 
+\draw (5Kofi)--(4NP); \draw (5V) -- (4VP.south) -- (5NP); \draw (6koti) -- (5V); \draw (6brede) -- (5NP);
 
-% \begin{figure}
-% %260 
-% \end{figure}
-% \newpage
+\end{tikzpicture}
+}
 
+\section{Ex 247 Pg 126}
+
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[baseline]
+\node at (0,0) (1S) {S};
+\node [below left=\baselineskip and 12mm of 1S] (2NP) {NP}; \node [below right=\baselineskip and 12mm of 1S] (2VP) {VP};
+\node [below=\baselineskip of 2NP] (3Kofi) {Kofi}; \node [below left=\baselineskip and 12mm of 2VP] (3V) {V};
+\node [below=\baselineskip of 2VP] (3NP) {NP}; \node [below right=\baselineskip and 24mm of 2VP] (3VP) {VP};
+\node [below=\baselineskip of 3V] (4teki) {teki}; \node [below=\baselineskip of 3NP] (4nefi) {a nefi};
+\node [below left=\baselineskip and 3mm of 3VP] (5V) {V}; \node [below right=\baselineskip and 3mm of 3VP] (5NP) {NP};
+\node [below=\baselineskip of 5V] (6koti) {koti}; \node [below=\baselineskip of 5NP] (6brede) {a brede};
+
+\draw (2NP) -- (1S.south) -- (2VP);
+\draw (3Kofi) -- (2NP); \draw (3V) -- (2VP.south) -- (3NP); \draw (2VP.south) -- (3S); \draw (4teki)--(3V); \draw (4nefi)--(3NP); \draw (4NP) -- (3S.south) -- (4VP); 
+\draw (6koti)--(5V); \draw (6brede)--(5NP);
+
+\end{tikzpicture}		
+}
+
+\section{Ex 252 Pg 128}
+
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[baseline]
+\node at (0,0) (1S) {S};
+\node [below left=\baselineskip and 12mm of 1S] (2NP) {NP}; \node [below right=\baselineskip and 12mm of 1S] (2VP) {VP};
+\node [below=\baselineskip of 2NP] (3a) {\strut a}; \node [below left=\baselineskip and 6mm of 2VP] (3V) {\strut V}; \node [below right=\baselineskip and 6mm of 2VP] (3VP) {\strut VP};
+\node [below=\baselineskip of 3V] (4waka) {\strut waka}; \node [below left=\baselineskip and 3mm of 3VP] (4V) {\strut V}; \node [below right=\baselineskip and 3mm of 3VP] (4PP) {\strut PP}; 
+\node [below=\baselineskip of 4V] (5go) {go}; \node [below=\baselineskip of 4PP] (5wosu) {a wosu};
+
+\draw (2NP) -- (1S.south) -- (2VP); \draw (3a)--(2NP); \draw (3V)--(2VP.south)--(3VP); \draw (3V)--(4waka); \draw (4V)--(3VP.south)--(4PP); \draw (4V)--(5go); 
+\node [isosceles triangle, isosceles triangle apex angle=100, shape border rotate=90, minimum height=1.25em, draw, below=3mm of 4PP.center] (5polygon) {};
+%\draw (5wosu.north east) -- (4PP.south) -- (5wosu.north west) -- cycle; % I don't like this, maybe some optimization is possible?
+
+\end{tikzpicture}	
+}
+
+\section{Ex 260 Pg 129}
+
+%\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[baseline]
+\node at (0,0) (1VP) {VP}; \node [above left=\baselineskip and 3mm of 1VP] (0inv) {};
+\draw [dashed] (1VP.north)--(0inv);
+\node [below left=\baselineskip and 6mm of 1VP] (2V) {V}; \node [below=\baselineskip of 1VP] (2NP) {NP}; \node [below right=\baselineskip and 18mm of 1VP] (2VP) {VP};
+\draw (2V)--(1VP.south)--(2NP); \draw (2VP)--(1VP.south);
+\node [below=\baselineskip of 2V] (3teki) {\strut teki}; \draw (2V)--(3teki);
+\node [rectangle split, rectangle split parts=2, below=\baselineskip of 2NP] (3watra) {watra\nodepart{two}buku}; \draw (2NP)--(3watra);
+\node [below left=\baselineskip and 6mm of 2VP] (3V) {\strut V}; \node [below right=\baselineskip and 6mm of 2VP] (3NP) {NP}; \draw (3V)--(2VP.south)--(3NP);
+\node  [rectangle split, rectangle split parts=3, below=\baselineskip of 3V] (4gi) {gi}; \node [below=\baselineskip of 3NP] (4plantjes) {\strut watra\nodepart{two}buku\nodepart{three}asd};
+\end{tikzpicture}	
+	
+%}
 
 % \begin{figure}
 % %261
