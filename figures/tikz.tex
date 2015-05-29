@@ -1,6 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage{amssymb}
-\usepackage{xunicode}
+%\usepackage{xunicode}
 \usepackage{mathspec}
 \usepackage{xltxtra}
 \usepackage{tikz}
@@ -266,7 +266,7 @@
 	\draw (node cs:name=5Aux) -- (node cs:name=6fi);
 	\draw (node cs:name=5V) -- (node cs:name=6go);
 	
-	\draw [red] (6mi.base) -- (7WH.base);
+	% \draw [red] (6mi.base) -- (7WH.base); % This line checks whether basline alignment is correct.
 \end{tikzpicture}
 }
 
@@ -459,7 +459,7 @@
 
 \section{Ex 260 Pg 129}
 
-%\resizebox{\textwidth}{!}{
+\resizebox{\textwidth}{!}{
 \begin{tikzpicture}[baseline]
 \node at (0,0) (1VP) {VP}; \node [above left=\baselineskip and 3mm of 1VP] (0inv) {};
 \draw [dashed] (1VP.north)--(0inv);
@@ -471,11 +471,10 @@
 \node  [rectangle split, rectangle split parts=2, below=\baselineskip of 3V] (4gi) {gi}; 
 \node [rectangle split, rectangle split parts=2, below=\baselineskip of 3NP] (4plantjes) {\strut plantjes\nodepart{two}mi};
 \draw (3V) -- (4gi); \draw (3NP) -- (4plantjes);
-\end{tikzpicture}	
-
+\end{tikzpicture}	  }
 \section{Ex 261 Pg 129}
 
-%\resizebox{\textwidth}{!}{
+\resizebox{\textwidth}{!}{
 \begin{tikzpicture}[baseline]
 \node at (0,0) (1VP) {VP}; \node [above left=\baselineskip and 3mm of 1VP] (0inv) {};
 \draw [dashed] (1VP.north)--(0inv);
@@ -489,7 +488,7 @@
 \draw (3P) -- (4gi); \draw (3NP) -- (4plantjes);
 \end{tikzpicture}
 	
-%}
+}
 
 % \begin{figure}
 % %261
@@ -509,10 +508,21 @@
 % \newpage
 
 
-% \begin{figure}
-% %228
-% \end{figure}
-% \newpage
+\clearpage
+\section{Fig. 4.1 Pg 228}
+\begin{figure}[h]
+	\begin{center}
+		\begin{tikzpicture}
+		\node at (0,0) [circle, fill, inner sep=3pt] (dot) {};
+		\node [dashed, color=red, circle, fit=(dot), inner sep=10pt] (guide) {}; % add 'draw' option here to show guiding help lines.
+		\foreach \angle in {90,126,...,540} {
+			\draw [thick] (guide.\angle) -- (\angle:2cm); 
+		}
+			\draw [thick] (guide.270) -- (270:6cm);
+		\end{tikzpicture}
+	\end{center}
+	\caption{The minimal ``flower''}
+\end{figure}
 
 
 % \begin{figure}
@@ -525,6 +535,22 @@
 % %fig 4.4. p249
 % \end{figure}
 % \newpage
+
+\clearpage
+\section{Fig 4.5 Pg 250}
+\begin{figure}[h]
+	\begin{center}
+	\begin{tikzpicture}[baseline]
+	\node at (0,0) (ownership) {Ownership \textit{(a)}};
+	\node [below=4\baselineskip of ownership] (possession) {Possession \textit{(get)}};
+	\node [right=4cm of ownership] (location) {Location \textit{(de)}};
+	\node [below=4\baselineskip of location] (existence) {Existence \textit{(get)}};
+	\node [draw, thick, fit=(ownership) (existence), inner xsep=2cm, inner ysep=1cm] (group) {};
+	\draw [thick] (group.east) -- (group.west); \draw [thick] (group.north) -- (group.center);
+	\end{tikzpicture}
+	\end{center}
+	\caption{Semantic space for location, etc., in GC}
+\end{figure}
 
 
 \clearpage
@@ -550,7 +576,7 @@
 \draw (4R) -- (3P.south) -- (4R2);
 \draw (4R3) -- (3P2.south) -- (4R4);
 
-\end{tikzpicture} % }
+\end{tikzpicture} %  }
 
 \caption{Hypothetical tree structure for semantic primes}
 \end{center}
@@ -561,18 +587,52 @@
 % \end{figure}
 % \newpage
 
-% \begin{figure}
-% %fig 4.8. p 259
-% \end{figure}
-% \newpage
+\newpage
+\section{Fig. 4.8 Pg 259}
+\begin{figure}[h]
+\begin{center}
+	\begin{tikzpicture}[baseline, every node/.style={rectangle split ignore empty parts=false}]
+	\node at (0,0) (habitual) [rectangle split, rectangle split parts=3] {(habitual)\nodepart{two}\nodepart{three}--S};
+	\node (habitualfit) [draw, fit=(habitual), inner sep=1cm] {};
+	\node (conditional) [above right=\baselineskip of habitualfit.north east, rectangle split, rectangle split parts=3] {(conditional)\nodepart{two}\nodepart{three}+S}; 
+	\node (past) [above left=\baselineskip of habitualfit.north west, rectangle split, rectangle split parts=3] {(past)\nodepart{two}\nodepart{three}+S}; 
+	\node (cont) [below left=\baselineskip of habitualfit.south west, rectangle split, rectangle split parts=3] {+S\nodepart{two}\nodepart{three}(continuous)}; 
+	\node (future) [right=2\baselineskip of habitualfit.340] {(future)};
+	\node (group) [draw, fit=(past) (cont) (conditional), inner sep=3\baselineskip] {};
+	\draw (group.south) -- (habitualfit.south); \draw (group.west) -- (habitualfit.west); \draw (group.north) -- (habitualfit.north);
+	\node [above left = .5\baselineskip of group.north]  {+R}; \node [above right = .5\baselineskip of group.north]  {--R};
+	\node [below left = .5\baselineskip of group.south]  {+R}; \node [below right = .5\baselineskip of group.south]  {--R};
+	\node [above left = .5\baselineskip of group.west]  {+P}; \node [below left = .5\baselineskip of group.west]  {--P};
+	\node [below=3\baselineskip of group.south] {(R = realis, P = punctual, S = specific)};
+	\end{tikzpicture}
+\end{center}
+\caption{Semantic space around habituals}
+
+\end{figure}
+
 
 % \begin{figure}
 % %fig 4.9. p 260
 % \end{figure}
 % \newpage
 
-% \begin{figure}
-% %fig 5.1. p 298
-%\end{figure}
+\clearpage
+\section{Fig 5.1 Pg 298}
+\begin{figure}[h]
+	\begin{center}
+	\hyphenpenalty=100000000
+	\begin{tikzpicture}
+	
+	\node at (0,0) [text width=4cm, align=center] (domain) {Domain of ``natural languages''};
+	\node at (6,3) [text width=3cm, align=center] (limit) {Limit imposed by formal universals};
+	
+	\node at (0,-2.5) [text width=3cm, align=center, draw, thick, inner xsep=1cm, inner ysep=.6666cm] (bioprog) {Bioprogram language};
+	\node (gr1) [draw, thick, inner xsep=1.5cm, inner ysep=1cm, fit = (domain) (bioprog)] {};
+	
+	\draw (limit.south) edge [very thick, draw, -{Stealth[length=15pt,inset=2pt]}, bend left]  (gr1.10);
+	\end{tikzpicture}
+	\end{center}
+	\caption{Relationship of bioprogram to formal universals}
+\end{figure}
 \end{center}
 \end{document}
