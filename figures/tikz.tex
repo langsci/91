@@ -4,6 +4,8 @@
 \usepackage{mathspec}
 \usepackage{xltxtra}
 \usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{multirow}
 \usepackage[hmargin=1cm]{geometry}
 \usetikzlibrary{positioning}
 \usetikzlibrary{fit}
@@ -11,6 +13,11 @@
 \usetikzlibrary{shapes.multipart}
 \usetikzlibrary{calc}
 \usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{intersections}
+
+\pgfdeclarelayer{bickertonbg}
+\pgfsetlayers{bickertonbg,main}
 
 \setallmainfonts[Mapping=tex-text]{Linux Libertine O}
 \begin{document}
@@ -490,22 +497,75 @@
 	
 }
 
-% \begin{figure}
-% %261
-% \end{figure}
-% \newpage
+\clearpage
+% The following table is not very nice :(
+\begin{table}
+	\begin{center}
+	\begin{tabular}{cccccc}
+	\multirow{2}{*}{Rank} & & \multicolumn{4}{c}{Age Group}\\
+	\cmidrule{3-6}
+	& & 3:7 & 4:7 & 5:6 & 6:6 \\
+	\midrule
+	1 & & P-1 & P-1 & J-1 & J-1\\
+	\begin{tikzpicture}[baseline] \node [circle, radius=1.5] {2}; \end{tikzpicture} & & \begin{tikzpicture}[baseline] \node [circle, radius=1.5] {J-2}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [circle, radius=1.5] {J-1}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [circle, radius=1.5] {J-2}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [circle, draw, radius=1.5] {Jx-5}; \end{tikzpicture}\\
+	\begin{tikzpicture}[baseline] \node [circle, radius=1.5] {3}; \end{tikzpicture} & & \begin{tikzpicture}[baseline] \node [circle, radius=1.5] {J-1}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [circle, draw, radius=1.5] {Jx-5}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [circle, radius=1.5, draw] {Jx-5}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [circle, radius=1.5] {J-2}; \end{tikzpicture}\\
+	\begin{tikzpicture}[baseline] \node [circle, radius=1.5] {4}; \end{tikzpicture} & & \begin{tikzpicture}[baseline] \node [circle, draw, radius=1.5] {Jx-5}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [circle, radius=1.5] {J-2}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [circle, radius=1.5] {P-1}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [circle, radius=1.5, draw] {Jx-10}; \end{tikzpicture}\\
+	\begin{tikzpicture}[baseline] \node [circle, radius=1.5] {5}; \end{tikzpicture} & & \begin{tikzpicture}[baseline] \node [circle, draw, radius=1.5] {Jx-10}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [draw, circle, radius=1.5] {Jx-10}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [circle, radius=1.5, draw] {P-10}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [circle, radius=1.5] {P-1}; \end{tikzpicture}\\
+	\begin{tikzpicture}[baseline] \node [circle, radius=1.5] {6}; \end{tikzpicture} & & \begin{tikzpicture}[baseline] \node [circle, draw, radius=1.5] {P-10}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [draw, circle, radius=1.5] {P-10}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [circle, radius=1.5, draw] {Jx-10}; \end{tikzpicture} & \begin{tikzpicture}[baseline] \node [circle, radius=1.5, draw] {P-10}; \end{tikzpicture}\\
+	
+	
+	\end{tabular}
+	\end{center}
+	\caption{Rank orders for past-marking frequency}
+\end{table}
 
 
-% \begin{figure}
-% %table33 p169
-% \end{figure}
-% \newpage
+\clearpage
+\section{Fig 3.1 Pg 178}
+\begin{figure}[h]
+	\begin{center}
+	\begin{tikzpicture}[baseline]
+	\node at (0,0) (16) {1:6}; 
+	\node [below=6\baselineskip of 16, text width=4em, right] (english) {English learner};
+	\node [right=4em of english] (base) {base};
+	\node [above right=2\baselineskip and 6em of base] (ing) {--ing (NP)};
+	\node [below right=2\baselineskip and 6em of base] (base2) {base};
+	\node [above right=2\baselineskip and 6em of base2] (irr) {irr. past (P)};
+	\node [below right=2\baselineskip and 6em of base2] (base3) {base};
+	\node [above right=2\baselineskip and 6em of base3] (reg) {reg. past};
+	\node [below right=2\baselineskip and 6em of base3] (base4) {base};
+	\draw [-Stealth, thick] (base.east) -- (ing.south west); \draw [-Stealth, thick] (base.east) -- (base2.north west);
+	\draw [-Stealth, thick] (base2.east) -- (irr.south west);
+	\draw [-Stealth, thick] (base2.east) -- (base3.north west);
+	\draw [-Stealth, thick] (base3.east) -- (reg.south west);
+	\draw [-Stealth, thick] (base3.east) -- (base4.north west);
+	\draw [-Stealth, thick] (reg.north west) -- (irr.south east);
+	
+	
+	
+	\node [below=15\baselineskip of english, text width=4em] (italian) {Italian learner};
+	\node [right=4em of italian] (itbase) {base};
+	\node [above right=2\baselineskip and 6em of itbase] (pp) {past part. (P)};
+	\node [below right=2\baselineskip and 6em of itbase] (itbase2) {base};
+	\path let \p1 = ($(itbase2) + (0,2\baselineskip)$), \p2=(reg.west) in node at (\x2, \y1) [right] (imp) {imperfect (NP)};
+	\path let \p1 = ($(itbase2) - (0,2\baselineskip)$), \p2=(imp.west) in node at (\x2, \y1) [right] (itbase3) {base};
+	
+	\draw [-Stealth, thick] (itbase2.east) -- (imp.west);
+	\draw [-Stealth, thick] (itbase2.east) -- (itbase3.west);
+	\draw [-Stealth, thick] (itbase.east) -- (pp.south west);
+	\draw [-Stealth, thick] (itbase.east) -- (itbase2.north west);
 
+	% use the processed image to create the heading.
+	\path let \p1 = (16), \p2 = (imp.east) in node at (\x2,\y1) (26) {2:6};
+	\draw [thick] (16) -- (26);
+	\node at ($(16)!.5!(26)$) [above=1\baselineskip] {Time line (very approx.)};	
 
-% \begin{figure}
-% %fig3.1 178
-% \end{figure}
-% \newpage
+	
+	\end{tikzpicture}
+	\end{center}
+	\caption{Comparative {\sc tma} acquisition (Italian versus English)}
+\end{figure}
+
 
 
 \clearpage
@@ -525,16 +585,86 @@
 \end{figure}
 
 
-% \begin{figure}
-% %fig 4.3. p247
-% \end{figure}
-% \newpage
+\clearpage
+\section{Fig 4.3 Pg 247}
+\begin{figure}[h]
+	\begin{center}
+	\begin{tikzpicture}[baseline]
+	\node at (0,0) [rectangle split, rectangle split parts=2] (def) {+P +S\nodepart{two}``Definite''};
+	\node at (4,0) [rectangle split, rectangle split parts=2] (indef) {--P +S\nodepart{two}``Indefinite''};
+	\node at (0,-3) [rectangle split, rectangle split parts=2] (gen) {+P --S\nodepart{two}``Generic''};
+	\node at (4,-3) [rectangle split, rectangle split parts=2] (oth) {--P --S\nodepart{two}``Other''};
+	
+	\node (gr1) [draw, fit=(def) (oth), inner xsep=1.25cm, inner ysep=1cm] {};
+	\draw (gr1.north) -- (gr1.center); \draw (gr1.east) -- (gr1.west);
+	
+	\node [left=\baselineskip of gr1.west] (gr1west) {};
+	\node [right=\baselineskip of gr1.east] (gr1east) {};
+	\node [above=\baselineskip of gr1.north] (gr1north) {};
+	\node [below=\baselineskip of gr1.south, fill=white, inner xsep=.25cm] (gr1south) {\huge ⌀};
+	
+	\path let \p1=(gr1north.base), \p2=(gr1.north east) in node at (\x2, \y1) [fill=white, left] (gr1NE) {\it wan};
+	\path let \p1=(gr1north.base), \p2=(gr1.north west) in node at (\x2, \y1) [right, fill=white] (gr1NW) {\it di};
+	
+	% fill=white in preceeding \paths and the following pgfonlayer is used so that dashed lines to not cross "wan" and "di"
+	
+	\begin{pgfonlayer}{bickertonbg}
+	\draw [decoration={markings, mark=between positions 0 and 1 step 1 with {\arrow[line width=0.1mm, scale=2]{|}}}, postaction={decorate}, dashed] (gr1west.south)  |- (gr1south.west)  -| (gr1east.south) ;
+	\draw [decoration={markings, mark=between positions 0 and 1 step 1 with {\arrow[line width=0.1mm, scale=2]{|}}}, postaction={decorate}, dashed] (gr1west.north) |- (gr1north.west);
+	\draw [name path=draw1, decoration={markings, mark=between positions 0 and 1 step 1 with {\arrow[line width=0.1mm, scale=2]{|}}}, postaction={decorate}, dashed] (gr1east.north) |- (gr1north.east);
+	\end{pgfonlayer}
+	
+	\end{tikzpicture}
+	\end{center}
+	\caption{Semantic Space for Guyanese Articles}
+\end{figure}
 
+\clearpage
+\section{Fig 4.4 Pg 249}
+\begin{figure}[h]
+	\begin{center}
+		\begin{tikzpicture}[baseline]
+		
+		% This figure needs some more exact measurements
+		
+		
+		\node at (0,0) [rectangle split, rectangle split parts=2] (def) {+P +S\nodepart{two}``Definite''};
+		\node at (4,0) [rectangle split, rectangle split parts=2] (indef) {--P +S\nodepart{two}``Indefinite''};
+		\node at (0,-3) [rectangle split, rectangle split parts=2] (gen) {+P --S\nodepart{two}``Generic''};
+		\node at (4,-3) [rectangle split, rectangle split parts=2] (oth) {--P --S\nodepart{two}``Other''};
+		
+		\node (gr1) [draw, fit=(def) (oth), inner xsep=1.25cm, inner ysep=1cm] {};
+		\draw (gr1.north) -- (gr1.south); \draw (gr1.east) -- (gr1.west);
+		
+		% These are auxialiary nodes. I think the figure can be produced more elegantly, but I have not figured out the optimal way yet.
+		
+		\node [left=1em of gr1.west, fill=white, inner xsep=0cm, inner ysep=.25cm] (gr1west) {\it the};
+		\node [left=3em of gr1.west] (gr1west2) {};
+		\node [right=1em of gr1.east, inner ysep=0cm] (gr1east) {}; %inner ysep here is to prevent dashed lines from making "breaks" between ends of point.
+		\node [right=3em of gr1.east] (gr1east2) {};
+		\node [above=\baselineskip of gr1.north] (gr1north) {};
+		\node [below=\baselineskip of gr1.south] (gr1south) {};
+		\node [below=2\baselineskip of gr1.south, inner xsep=0cm] (gr1south2) {};
+		\node [left=4.5em of gr1.west] (gr1west3) {};
+		\node [below=3\baselineskip of gr1.south] (gr1south3) {\underline{\large ⌀ \hspace{.75em} \textit{s}}};
+		
+		
+		\path let \p1=(gr1east), \p2=(gr1south2.base) in node at (\x1, \y2) [fill=white] (gr1SE) {\it a};
+%		\path let \p1=(gr1north.base), \p2=(gr1.north west) in node at (\x2, \y1) [right, fill=white] (gr1NW) {\it di};
+		
+		% fill=white in preceeding \paths and the following pgfonlayer is used so that dashed lines to not cross "wan" and "di"
+		
+	\begin{pgfonlayer}{bickertonbg}
+		\draw [decoration={markings, mark=between positions 0 and 1 step 1 with {\arrow[line width=0.1mm, scale=2]{|}}}, postaction={decorate}, dashed] (gr1south.west)  -| (gr1west)  |- (gr1north.west) ;
+		\draw [decoration={markings, mark=between positions 0 and 1 step 1 with {\arrow[line width=0.1mm, scale=2]{|}}}, postaction={decorate}, dashed] (gr1north.east) -| (gr1east) |- (gr1south2) -| (gr1west2.south);
+		\draw [name path=draw1, decoration={markings, mark=between positions 0 and 1 step 1 with {\arrow[line width=0.1mm, scale=2]{|}}}, postaction={decorate}, dashed] (gr1west3.south) |- (gr1south3) -| (gr1east2.south);
+	\end{pgfonlayer}
+		
+		\end{tikzpicture}
+	\end{center}
+	\caption{Semantic Space for English articles}
+\end{figure}
 
-% \begin{figure}
-% %fig 4.4. p249
-% \end{figure}
-% \newpage
 
 \clearpage
 \section{Fig 4.5 Pg 250}
@@ -611,10 +741,49 @@
 \end{figure}
 
 
-% \begin{figure}
-% %fig 4.9. p 260
-% \end{figure}
-% \newpage
+\clearpage
+\section{Fig 4.9 Pg 260}
+\begin{center}
+\begin{figure}[h]
+\begin{minipage}{7cm}
+	\begin{tikzpicture}[baseline]
+	\node at (0,0) (PR1) {+P+R} ;
+	\node at (4,0) (R1) {--R} ;
+	\node at (0,-4) (PR2) {--P+R} ;
+	\node at (4,-4) (R2) {--R} ;
+	\node (gr1) [fit=(PR1) (R2), draw, inner sep=2em] {};
+	\node at (2,-2) (P1) [inner sep=2em] {--P}; \draw (P1.west) |- (P1.north) -| (P1.east) |- (P1.south); %horizontal centering seems to be off for P1
+	\draw (gr1.north) |- (P1.north); \draw (gr1.west) -- (P1.west); \draw (P1.south) -| (gr1.south);
+	\end{tikzpicture}
+	\caption{(a)}
+\end{minipage}	
+\begin{minipage}{7cm}
+\begin{tikzpicture}[baseline]
+	\node at (0,0) (PR1) {+P+R} ;
+	\node at (4,0) (R1) {--R} ;
+	\node at (0,-4) (PR2) {--P+R} ;
+	\node at (4,-4) (R2) {--R} ;
+	\node (gr1) [fit=(PR1) (R2), draw, inner sep=2em] {};
+	\node at (2,-2) (P1) [inner sep=2em] {+P}; \draw (P1.west) |- (P1.south) -| (P1.east) |- (P1.north); %horizontal centering seems to be off for P1
+	\draw (gr1.north) |- (P1.north); \draw (gr1.west) -- (P1.west); \draw (P1.south) -| (gr1.south);
+	\end{tikzpicture}
+	\caption{(b)}
+\end{minipage}
+\begin{minipage}{7cm}
+	\begin{tikzpicture}[baseline]
+	\node at (0,0) (PR1) {+P+R} ;
+	\node at (4,0) (R1) {--R} ;
+	\node at (0,-4) (PR2) {--P+R} ;
+	\node at (4,-4) (R2) {--R} ;
+	\node (gr1) [fit=(PR1) (R2), draw, inner sep=2em] {};
+	\node at (2,-2) (R3) [inner sep=2em] {--R}; \draw (R3.south) -| (R3.west) |- (R3.north); 
+	\draw (gr1.north) -| (R3.north); \draw (gr1.west) -- (R3.west); \draw (R3.south) |- (gr1.south);
+	\end{tikzpicture}
+	\caption{(c)}
+\end{minipage}
+\end{figure}
+
+\end{center}
 
 \clearpage
 \section{Fig 5.1 Pg 298}
