@@ -712,10 +712,56 @@
 \end{center}
 \end{figure}
 
-% \begin{figure}
-% %fig 4.7. p 253
-% \end{figure}
-% \newpage
+\clearpage
+\section{Figure 4.7 Pg 253}
+
+\begin{figure}[p]
+\begin{center}
+	\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[baseline,align=left]
+% First Column
+\node at (0,0) (1) {IS INTERESTING\\IS~THOUGHT~ABOUT};
+\node [below left=4\baselineskip and 2cm of 1, right, fill=white] (4) {IS~NEARBY\\IS~AT~THE~CORNER};
+\node [below left=4\baselineskip and 1cm of 4,right, fill=white] (redheavy) {IS RED\\IS HEAVY};
+\node [below left=4\baselineskip and 1cm of redheavy,right, fill=white] (tallskinny) {IS TALL\\IS SKINNY};
+\node [below left=4\baselineskip and .5cm of tallskinny, right, fill=white] (deadsick) {IS DEAD\\IS SICK};
+\node [below left=4\baselineskip and .5cm of deadsick, right, fill=white] (asleephungry) {IS ASLEEP\\IS HUNGRY};
+\node [below left=4\baselineskip and .5cm of asleephungry, right, fill=white] (honestsorry) {IS HONEST\\IS SORRY};
+% Connetion between 1st column
+\begin{pgfonlayer}{bickertonbg}
+\draw (1.south) edge [bend right=25] (honestsorry.100);
+\end{pgfonlayer}
+
+% Other Columns
+\node [below right=\baselineskip and 3.5cm of 1] (2) {love\\fear};
+\node [right=2cm of redheavy] (hourlong) {IS AN HOUR LONG\\HAPPENED YESTERDAY};
+\node [below right=\baselineskip and 2.5cm of hourlong] (thunderstorm) {thunderstorm\\sunrise};
+\node [below right=4\baselineskip and 1cm of hourlong,left] (purpose) {IS ON PURPOSE\\IS X'S FAULT};
+\node [right=4em of 4] (3) {IS~ABOUT~X\\IS~TRUE};
+\node [below right=\baselineskip and 2.5cm of 3] (storyidea) {story\\idea};
+\node [right=2cm of tallskinny,right] (leaksout) {LEAKS OUT\\OF BOXES};
+\node [below right=2\baselineskip and 2cm of purpose] (fightkiss) {fight\\kiss};
+\node [below right=2\baselineskip and 2cm of leaksout] (milkwater) {milk\\water};
+\node [above right=.5\baselineskip and 1.25cm of deadsick,right] (fixedbroken) {IS FIXED\\IS BROKEN}; 
+\node [above right=.5\baselineskip and 1.25cm of asleephungry,right] (wilted) {IS WILTED\\BLOOMS}; 
+\node [below=2\baselineskip of milkwater] (carref) {car\\refrigerator};
+\node [below=2\baselineskip of carref] (flowertree) {flower\\tree};
+\node [below=2\baselineskip of wilted] (pigrabbit) {pig\\rabbit};
+\node [below=2\baselineskip of pigrabbit] (mangirl) {man\\girl};
+
+% Connections for other columns
+\draw [dashed] (1.south) -- (2.west); \draw (1.south) -- (3.north); \draw [dashed] (3.south east) -- (storyidea);
+\draw (4.315) -- (hourlong.150); \draw [dashed] (hourlong.south) -- (thunderstorm.west); \draw (purpose) -- (hourlong.south); \draw (redheavy.315) -- (leaksout); \draw [dashed] (purpose) -- (fightkiss.west); \draw [dashed] (milkwater.west) -- (leaksout); \draw (tallskinny) -- (fixedbroken); \draw [dashed] (fixedbroken) -- (carref.west); \draw (deadsick) -- (wilted); \draw [dashed] (wilted) -- (flowertree.west); \draw [dashed] (asleephungry) -- (pigrabbit); \draw [dashed] (honestsorry) -- (mangirl.west);
+
+
+
+
+
+\end{tikzpicture}
+}
+\end{center}
+\caption{The predicability tree ({\it from Keil 1979: Figure 1})}
+\end{figure}
 
 \newpage
 \section{Fig. 4.8 Pg 259}
