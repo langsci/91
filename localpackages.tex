@@ -1,25 +1,23 @@
 % add all extra packages you need to load to this file  
+\usepackage{amsmath}
 \usepackage{tabularx} 
+\usepackage{lsp-gb4e}
+\usepackage{todonotes}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%                                              %%%
-%%%           Examples                           %%%
-%%%                                              %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\usepackage{lsp-gb4e} 
-%% to add additional information to the right of examples, uncomment the following line
-% \usepackage{jambox}
-%% if you want the source line of examples to be in italics, uncomment the following line
-% \renewcommand{\exfont}{\itshape}
 
-\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{multirow}
 
-\lstset{ %
-  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-  basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code 
-  keywordstyle=\color{blue!60!black},       % keyword style
-  language=XML,                 % the language of the code 
-  stringstyle=\color{green!60!black},     % string literal style 
-  morekeywords={token,xlink:href, Action, Value, Cursor,LogEvent}
-} 
- 
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{fit}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{intersections}
+
+\pgfdeclarelayer{bickertonbg}
+\pgfsetlayers{bickertonbg,main}
