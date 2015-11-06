@@ -238,12 +238,12 @@ Consider \figref{fig:4.2}. %below:
 \begin{figure}
 \begin{center}
 	\begin{tikzpicture}[baseline]
-	\node at (0,0) (ownership) {Ownership};
-	\node at (4,0) (location) {Location};
-	\node at (0,-3) (possession) {Possession};
-	\node at (4,-3) (existence) {Existence};
+	\node at (0,0) (ownersh) {Ownership};
+	\node at (4,0) (locati) {Location};
+	\node at (0,-3) (possessi) {Possession};
+	\node at (4,-3) (existen) {Existence};
 	
-	\node (gr1) [draw, fit=(ownership) (existence), inner xsep=1.25cm, inner ysep=1cm] {};
+	\node (gr1) [draw, fit=(ownersh) (existen), inner xsep=1.25cm, inner ysep=1cm] {};
 	\draw (gr1.north) -- (gr1.south); \draw (gr1.east) -- (gr1.west);
 	
 	\end{tikzpicture}		
@@ -360,11 +360,11 @@ in the location-existence-possession-ownership area. Let us make the same assump
 	\begin{center}
 		\resizebox{.75\textwidth}{!}{
 		\begin{tikzpicture}[baseline]
-		\node at (0,0) (ownership) {Ownership \textit{(a)}};
-		\node [below=4\baselineskip of ownership] (possession) {Possession \textit{(get)}};
-		\node [right=4cm of ownership] (location) {Location \textit{(de)}};
-		\node [below=4\baselineskip of location] (existence) {Existence \textit{(get)}};
-		\node [draw, thick, fit=(ownership) (existence), inner xsep=2cm, inner ysep=1cm] (group) {};
+		\node at (0,0) (ownersh) {Ownership \textit{(a)}};
+		\node [below=4\baselineskip of ownersh] (possessi) {Possession \textit{(get)}};
+		\node [right=4cm of ownersh] (locati) {Location \textit{(de)}};
+		\node [below=4\baselineskip of locati] (existen) {Existence \textit{(get)}};
+		\node [draw, thick, fit=(ownersh) (existen), inner xsep=2cm, inner ysep=1cm] (group) {};
 		\draw [thick] (group.east) -- (group.west); \draw [thick] (group.north) -- (group.center);
 		\end{tikzpicture}
 	}
@@ -502,13 +502,13 @@ Analysis (a) of \figref{fig:4.9}.9 corresponds to the Guyanese (majority creole)
 \begin{figure}
 \begin{center}
 	\begin{tikzpicture}[baseline, every node/.style={rectangle split ignore empty parts=false}]
-	\node at (0,0) (habitual) [rectangle split, rectangle split parts=3] {(habitual)\nodepart{two}\nodepart{three}--S};
-	\node (habitualfit) [draw, fit=(habitual), inner sep=1cm] {};
-	\node (conditional) [above right=\baselineskip of habitualfit.north east, rectangle split, rectangle split parts=3] {(conditional)\nodepart{two}\nodepart{three}+S}; 
-	\node (past) [above left=\baselineskip of habitualfit.north west, rectangle split, rectangle split parts=3] {(past)\nodepart{two}\nodepart{three}+S}; 
+	\node at (0,0) (habitu) [rectangle split, rectangle split parts=3] {(habitual)\nodepart{two}\nodepart{three}--S};
+	\node (habitualfit) [draw, fit=(habitu), inner sep=1cm] {};
+	\node (conditiona) [above right=\baselineskip of habitualfit.north east, rectangle split, rectangle split parts=3] {(conditional)\nodepart{two}\nodepart{three}+S}; 
+	\node (pas) [above left=\baselineskip of habitualfit.north west, rectangle split, rectangle split parts=3] {(past)\nodepart{two}\nodepart{three}+S}; 
 	\node (cont) [below left=\baselineskip of habitualfit.south west, rectangle split, rectangle split parts=3] {+S\nodepart{two}\nodepart{three}(continuous)}; 
-	\node (future) [right=2\baselineskip of habitualfit.340] {(future)};
-	\node (group) [draw, fit=(past) (cont) (conditional), inner sep=3\baselineskip] {};
+	\node (futu) [right=2\baselineskip of habitualfit.340] {(future)};
+	\node (group) [draw, fit=(pas) (cont) (conditiona), inner sep=3\baselineskip] {};
 	\draw (group.south) -- (habitualfit.south); \draw (group.west) -- (habitualfit.west); \draw (group.north) -- (habitualfit.north);
 	\node [above left = .5\baselineskip of group.north]  {+R}; \node [above right = .5\baselineskip of group.north]  {--R};
 	\node [below left = .5\baselineskip of group.south]  {+R}; \node [below right = .5\baselineskip of group.south]  {--R};
