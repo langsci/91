@@ -1,27 +1,29 @@
 Hi Sebastian,
 here are my comments to the draft chapter 2 form Bickerton's book.
 
-page 69, last para, line 1: there is a bracket missing
-page 72, numbered list, point (E) is missing a bracket also
-page 88, middle of the page, there is a bracket missing after "(1977:
-23ff., 181ff.)" there should be a second bracket here
-page 88, after para 3 there are some blank lines, the spacing might be a
-bit wrong here,
-page 97, 3rd para in the last 3 lines, examples (165) and (166) are given
-as /165/ and /166/, round brackets should be used instead
-page 103, para above example (202), there is a bracket missing here after
-the text given in italics,
-page 114, last para, there is a missing space after "Greg Lee (p.c.)"
-page 118, example at the top of the page, the numbering seems to be spaced
-strangely, number (262) should be at the top of the example I am guessing,
-page 119, footnote, I think that "60%" would be better than the current "60
-percent" (sorry I know we are not checking language)
-page 121, footnote is missing a full stop at the very end of the footnote
-page 122, top of the page, there is a strange gap after the word "desires."
+OK page 69, last para, line 1: there is a bracket missing
 
-also I found that wherever there are quotation marks, the beginning marks
-are fine, but the closing ones seem to be in a different style and they
-look a bit more like to single quotes. Maybe I am just being picky.
+OK page 72, numbered list, point (E) is missing a bracket also
+
+OK page 88, middle of the page, there is a bracket missing after "(1977: 23ff., 181ff.)" there should be a second bracket here
+
+NO page 88, after para 3 there are some blank lines, the spacing might be a bit wrong here,
+
+OK page 97, 3rd para in the last 3 lines, examples (165) and (166) are given as /165/ and /166/, round brackets should be used instead
+
+OK page 103, para above example (202), there is a bracket missing here after the text given in italics,
+
+OK page 114, last para, there is a missing space after "Greg Lee (p.c.)"
+
+page 118, example at the top of the page, the numbering seems to be spaced strangely, number (262) should be at the top of the example I am guessing,
+
+
+NO page 119, footnote, I think that "60%" would be better than the current "60 percent" (sorry I know we are not checking language)
+
+OK page 121, footnote is missing a full stop at the very end of the footnote
+NO page 122, top of the page, there is a strange gap after the word "desires."
+
+OK also I found that wherever there are quotation marks, the beginning marks are fine, but the closing ones seem to be in a different style and they look a bit more like to single quotes. Maybe I am just being picky. 
 
 Despite these remarks, I am totally impressed with the quality of the OCR.
 Wow!
