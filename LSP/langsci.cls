@@ -1137,8 +1137,8 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\lsImpressumCitationText}{
-	\renewcommand{\newlineCover}{}
-	\renewcommand{\newlineSpine}{}
+	\renewcommand{\newlineCover}{~}
+	\renewcommand{\newlineSpine}{~}
 	{\@author}\if\lsEditorSuffix\empty\else\ \lsEditorSuffix\fi. %
 	{\the\year}. %
 	\textit{\@title}\if\@subtitle\empty\else: \textit{\@subtitle}\fi\ %
