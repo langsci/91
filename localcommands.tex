@@ -1,5 +1,12 @@
 %add all your local new commands to this file
 
+\renewcommand{\langinfo}[3]{{\expandafter\ili\expandafter{#1}~(%
+		\ifx\\#2\\%
+		\else%
+		#2;
+		\fi%
+		#3)}\nopagebreak[4]\ignorespaces}
+
 \newcommand{\zero}{$\emptyset$}
 \newcommand{\zeros}{zeros}
 
