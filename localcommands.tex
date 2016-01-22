@@ -26,7 +26,7 @@
 
 \newcommand{\citegenp}[1]{\citeauthor{#1}'s (\citeyear{#1})}
 
-\renewcommand{\langinfo}[1]{\ili{#1}}
+\renewcommand{\langinfo}[1]{\expandafter\ili\expandafter{#1}}
 
 % Example italics corrections
 \renewcommand{\exfont}{\upshape}
