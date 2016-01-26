@@ -6,8 +6,8 @@ s/\\langEng/English/
 s/\\langFr/French/ 
 s/\\langGC/Guyanese Creole/
 s/\\langGU/Guyanais/
-s/\\langHC/Haitian Creole/
 s/\\langHCE/Hawaiian Creole English/
+s/\\langHC/Haitian Creole/
 s/\\langHPE/Hawaiian Pidgin English/
 s/\\langIOC/Indian Ocean Creole(s)/
 s/\\langJC/Jamaican Creole/
@@ -28,4 +28,5 @@ s/\\langSNSD/Specific-Nonspecific Distinction/
 s/\\langSPD/State-Process Distinction/
 s/\\langSR/Sranan/
 s/\\langSSC/Specified Subject Condition/
-s/\\langST/S\~ao Tomense/
+s/\\langST/S\\~ao Tomense/
+s/ |/|/
