@@ -13,6 +13,7 @@ main.pdf: main.tex $(SOURCE)
 	sed -i s/.*\\emph.*// main.adx #remove titles which biblatex puts into the name index
 	sed -i 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' main.sdx
 	sed -i 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' main.adx
+	sed -i -f fixindex.sed  main.ldx
 	makeindex -o main.and main.adx
 	makeindex -o main.lnd main.ldx
 	makeindex -o main.snd main.sdx

@@ -10,6 +10,7 @@
 \newcommand{\lsISBNdigital}{000-0-000000-00-0}
 \newcommand{\lsISBNhardcover}{000-0-000000-00-0}
 \newcommand{\lsISBNsoftcover}{000-0-000000-00-0}
+\newcommand{\lsISBNsoftcoverus}{000-0-000000-00-0}
 \newcommand{\lsURL}{http://langsci-press.org/catalog}
 \newcommand{\lsSeries}{eotms}
 \newcommand{\lsSpineBreadth}{20mm}
@@ -1206,6 +1207,7 @@ http://creativecommons.org/licenses/by-nd/4.0/
 ISBN: & \lsISBN~(Digital) \\
       &	\lsISBNhardcover~(Hardcover)\\
       & \lsISBNsoftcover~(Softcover)\\
+      & \lsISBNsoftcoverus~(Softcover US)\\
 \end{tabular}
 
 \IfStrEq{\lsISSN}{??}		% \IfStrEq from xstring
