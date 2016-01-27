@@ -565,8 +565,6 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 		\fi
 	}
 
-
-
 \newcommand{\lsLanguageIndexTitle}{Language index}	% This can be changed according to the language.
 \newcommand{\lsSubjectIndexTitle}{Subject index}
 \newcommand{\lsNameIndexTitle}{Name index}
@@ -936,11 +934,9 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 	%%%%%%%%%%%%%%%%%%%%
 	\AtEndDocument{
 		\lsPageStyleEmpty
-		\null
-% 		\newpage
-% 		\thispagestyle{empty}
+		\null\newpage\thispagestyle{empty}
 		%% Advertisement:
-% 		{\lsAdvertisement}
+		{\lsAdvertisement}
 	}
 \fi		
 
@@ -962,10 +958,10 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 	%%%%%%%%%%%%%%%%%%%%
 	\AtEndDocument{
 		\lsPageStyleEmpty
-% 		\null\newpage\thispagestyle{empty}
-% 		%% Advertisement:
-% % 		{\lsAdvertisement}
-% 		\null\newpage\thispagestyle{empty}
+		\null\newpage\thispagestyle{empty}
+		%% Advertisement:
+		{\lsAdvertisement}
+		\null\newpage\thispagestyle{empty}
 		%% Back page:
 		{\lsBackPage}
 		\null\newpage\thispagestyle{empty}
@@ -1205,7 +1201,7 @@ http://creativecommons.org/licenses/by-nd/4.0/
 ISBN: & \lsISBN~(Digital) \\
       &	\lsISBNhardcover~(Hardcover)\\
       & \lsISBNsoftcover~(Softcover)\\
-      & \lsISBNsoftcoverus~(Softcover USA)\\
+      & \lsISBNsoftcoverus~(Softcover US)\\
 \end{tabular}
 
 \IfStrEq{\lsISSN}{??}		% \IfStrEq from xstring

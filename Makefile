@@ -10,7 +10,7 @@ all: pod cover
 complete: index main.pdf
 
 index:  main.snd
- 
+
 main.pdf: main.aux
 	xelatex main 
 
@@ -31,17 +31,10 @@ main.snd: main.bbl
 	sed -i -f fixindex.sed  main.ldx
 	makeindex -o main.and main.adx
 	makeindex -o main.lnd main.ldx
-	makeindex -o main.snd main.sdx
-	xelatex -no-pdf main 
-	xelatex main 
-
-
-# 	python3 fixindex.py
-# 	mv mainmod.adx main.adx
-	makeindex -o main.and main.adx
-	makeindex -o main.lnd main.ldx
 	makeindex -o main.snd main.sdx 
 	xelatex main 
+
+ 
  
 
 #create a png of the cover
