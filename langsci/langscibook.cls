@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%      File: langscibook.cls
 %%    Author: Language Science Press (http://langsci-press.org)
-%%      Date: 2016-01-26 20:54:30 UTC
+%%      Date: 2016-01-19 21:32:18 UTC
 %%   Purpose: This file defines the basic document class 
 %%            for books published with Language Science Press.
 %%  Language: LaTeX
@@ -9,13 +9,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{langsci/langscibook}[2016/01/26 Language Science Press]
+\ProvidesClass{langsci/langscibook}[2016/01/19 Language Science Press]
 
 %% Default values:
 \usepackage{xspace}
 \newcommand{\lsp}{Language Science Press\xspace}
 \newcommand{\lsSeriesNumber}{??}
 \newcommand{\lsISSN}{??}
+\newcommand{\lsISBN}{000-0-000000-00-0}
 \newcommand{\lsISBNdigital}{000-0-000000-00-0}
 \newcommand{\lsISBNhardcover}{000-0-000000-00-0}
 \newcommand{\lsISBNsoftcover}{000-0-000000-00-0}
@@ -40,7 +41,6 @@
 \newif\iflsCollectionTOCLong \lsCollectionTOCLongfalse
 \newif\iflsNewtxmath \lsNewtxmathfalse
 \newif\iflsBlackandwhite \lsBlackandwhitefalse
-\newif\iflsUscover \lsUscoverfalse
 
 
 %% Option handling:
@@ -54,15 +54,9 @@
 \DeclareStringOption{issn}[??]
 	\define@key{langscibook}{issn}{%
 		\renewcommand{\lsISSN}{#1}}
-\DeclareStringOption{isbndigital}[000-0-000000-00-0]
-	\define@key{langscibook}{isbndigital}{%
-		\renewcommand{\lsISBNdigital}{#1}}
-\DeclareStringOption{isbnsoftcover}[000-0-000000-00-0]
-	\define@key{langscibook}{isbnsoftcover}{%
-		\renewcommand{\lsISBNsoftcover}{#1}}
-\DeclareStringOption{isbnhardcover}[000-0-000000-00-0]
-	\define@key{langscibook}{isbnhardcover}{%
-		\renewcommand{\lsISBNhardcover}{#1}}
+\DeclareStringOption{isbn}[000-0-000000-00-0]
+	\define@key{langscibook}{isbn}{%
+		\renewcommand{\lsISBN}{#1}}
 \DeclareStringOption{url}[http://langsci-press.org/catalog]
 	\define@key{langscibook}{url}{%
 		\renewcommand{\lsURL}{#1}}
@@ -89,7 +83,7 @@
 	 \overfullrule=5pt	}	% to indicate overfull hboxes
 \DeclareVoidOption{openreview}{
 	\lsOpenReviewtrue%
-	\AtBeginDocument{\renewcommand{\lsISBNdigital}{000-0-000000-00-0}}}
+	\AtBeginDocument{\renewcommand{\lsISBN}{000-0-000000-00-0}}}
 \DeclareVoidOption{noindex}{  			
 	\lsIndexfalse}
 \DeclareVoidOption{showindex}{  			
@@ -108,8 +102,6 @@
 \DeclareVoidOption{collectiontoclong}{  			
 	\lsCollectiontrue%
 	\lsCollectionTOCLongtrue}
-\DeclareVoidOption{uscover}{  			
-	\lsUscovertrue}
 \ProcessKeyvalOptions{langscibook}
 
 \LoadClass[
@@ -129,6 +121,8 @@
 \usepackage{xstring}	% Needed on Lines 114ff and again on 167
 \usepackage{graphicx}	% Needed twice
 \usepackage{hyphenat}	% Needed twice
+
+\renewcommand{\lsISBN}{\lsISBNdigital} % for compatibility
 
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -256,6 +250,12 @@
 	BoldItalicFont = Arimo-BoldItalic_B.ttf 		
 	]{Arimo_B.ttf}
 		
+% \setmonofont[
+% 	Ligatures={TeX},Scale=MatchLowercase,Path=\fontpath,
+% 	BoldFont = FreeMonoBold_B.otf ,
+% 	SlantedFont = FreeMonoOblique_B.otf ,				
+% 	BoldSlantedFont = FreeMonoBoldOblique_B.otf 		
+% 	]{FreeMono_B.otf}
 \setmonofont[
 	Ligatures={TeX},Scale=MatchLowercase,Path=\fontpath,
 	BoldFont = DejaVuSansMono-Bold.ttf ,
@@ -356,9 +356,7 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 	}
 
 %\def\@author{\@latex@warning@no@line{No \noexpand\author given}}
-\newcommand{\ISBNdigital}[1]{\renewcommand{\lsISBNdigital}{#1}}
-\newcommand{\ISBNsoftcover}[1]{\renewcommand{\lsISBNsoftcover}{#1}}
-\newcommand{\ISBNhardcover}[1]{\renewcommand{\lsISBNhardcover}{#1}}
+\newcommand{\ISBN}[1]{\renewcommand{\lsISBN}{#1}}
 \newcommand{\URL}[1]{\renewcommand{\lsURL}{#1}}
 \newcommand{\Series}[1]{\renewcommand{\lsSeries}{#1}}
 \newcommand{\SeriesNumber}[1]{\renewcommand{\lsSeriesNumber}{#1}}
@@ -558,6 +556,7 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 		\parindent\z@
 		\parskip\z@ \@plus .3\p@\relax
 		\let\item\@idxitem
+		\providecommand*\seealso[2]{\emph{see also} ##1}
 	}{%
 		\if@restonecol
 			\onecolumn
@@ -772,6 +771,7 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 
 \usepackage{pdfpages}
 \newcommand{\lsAdvertisement}{
+	\includepdf[pages={1}]{blank.pdf}
 	\includepdf[pages={1}]{langsci/graphics/didyoulikethisbook.pdf}
 }
 
@@ -794,7 +794,7 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 	\lsBackBodyFont\sffamily
 	\colorbox{white}{%
 	\begin{pspicture}(0,0)(4.1,1in)
-	\psbarcode[transx=0.4,transy=0.3]{\lsISBNdigital}{includetext height=0.7}{isbn}
+	\psbarcode[transx=0.4,transy=0.3]{\lsISBN}{includetext height=0.7}{isbn}
 	\end{pspicture}
 	}%	
 	\end{textblock}}
@@ -936,7 +936,7 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 	\AtEndDocument{
 		\lsPageStyleEmpty
 		\null\newpage\thispagestyle{empty}
-		% Advertisement:
+		%% Advertisement:
 		{\lsAdvertisement}
 	}
 \fi		
@@ -1089,9 +1089,7 @@ al desirabilite de un nov lingua franca: On refusa continuar payar custosi tradu
 	\node [below right = 192.5mm and 97.5mm of lspcls_bg2.north west, text width=4cm] {
 		\colorbox{white}{
 			\begin{pspicture}(0,0)(4.1,1in)
-			\psbarcode[transx=.4,transy=.3]{%
-				\iflsUscover\lsISBNsoftcoverus\else\lsISBNsoftcover\fi
-			}{includetext height=.7}{isbn}\end{pspicture}}};
+			\psbarcode[transx=.4,transy=.3]{\lsISBNsoftcover}{includetext height=.7}{isbn}\end{pspicture}}};
 	\end{tikzpicture} 
 	\end{titlepage}
 	\end{document}     % the cover and nothing else.
@@ -1200,11 +1198,11 @@ Published under the Creative Commons Attribution-NoDerivatives 4.0 Licence (CC B
 http://creativecommons.org/licenses/by-nd/4.0/ 
 \fi
  
-\begin{tabular}{@{}l@{~}c@{~}l}
-ISBN: & \lsISBNdigital & (Digital) \\
-      &	\lsISBNhardcover & (Hardcover)\\
-      & \lsISBNsoftcover & (Softcover)\\
-      & \lsISBNsoftcoverus & (Softcover US)\\
+\begin{tabular}{@{}l@{~}l}
+ISBN: & \lsISBN~(Digital) \\
+      &	\lsISBNhardcover~(Hardcover)\\
+      & \lsISBNsoftcover~(Softcover)\\
+      & \lsISBNsoftcoverus~(Softcover US)\\
 \end{tabular}
 
 \IfStrEq{\lsISSN}{??}		% \IfStrEq from xstring

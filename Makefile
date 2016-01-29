@@ -1,6 +1,6 @@
 # specify thh main file and all the files that you are including
 SOURCE=  main.tex $(wildcard local*.tex) $(wildcard chapters/*.tex) \
-LSP/langscibook.cls
+langsci/langscibook.cls
 
 # specify your main target here:
 pdf: main.bbl main.pdf  #by the time main.pdf, bib assures there is a newer aux file
@@ -65,7 +65,11 @@ createspace/createspacecontent.pdf: complete
 	sed "s/output=short/output=covercreatespace/" main.tex >createspacecover.tex 
 	xelatex createspacecover.tex 
 	xelatex createspacecover.tex 
-	mv createspacecover.pdf createspace
+	mv createspacecover.pdf createspace 
+	sed "s/output=short/output=covercreatespaceus/" main.tex >createspacecoverus.tex 
+	xelatex createspacecoverus.tex 
+	xelatex createspacecoverus.tex 
+	mv createspacecoverus.pdf createspace
 	./filluppages 1 main.pdf createspace/createspacecontent.pdf 
 
 googlebooks: googlebooks_interior.pdf
